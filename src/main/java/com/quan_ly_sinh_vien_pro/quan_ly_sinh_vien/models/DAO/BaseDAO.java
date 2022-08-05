@@ -1,8 +1,6 @@
 package com.quan_ly_sinh_vien_pro.quan_ly_sinh_vien.models.DAO;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 class DatabaseInfo {
     private final String url = "jdbc:mysql://localhost:3306/quan_ly_sinh_vien";
@@ -26,15 +24,25 @@ public class BaseDAO {
     protected Connection conn = null;
     final DatabaseInfo db_info = new DatabaseInfo();
 
-    public void open(){
+    public void open() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             this.conn = DriverManager.getConnection(db_info.getUrl(), db_info.getUser(), db_info.getPassword());
             System.out.println("db connected!");
         } catch (Exception e) {
-            throw new IllegalStateException("Cannot connect database ", e);
+            this.ThrowsErr(e);
         }
     }
+
+    public void ThrowsErr(Exception e) {
+        System.out.println(e.getMessage());
+    }
+
+    public ResultSet Execute(String sql) throws SQLException {
+        Statement stm = this.conn.createStatement();
+        return stm.executeQuery(sql);
+    }
+
     public void destroy() throws SQLException {
         try {
             this.conn.close();
@@ -42,6 +50,5 @@ public class BaseDAO {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
     }
 }

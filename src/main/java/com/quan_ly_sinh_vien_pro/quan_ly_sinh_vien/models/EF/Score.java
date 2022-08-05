@@ -6,11 +6,16 @@ public class Score {
     String id;
     String student_id;
     String subject_id;
+    String class_id;
     String score;
     Date create_at;
     Date update_at;
     int local_state;
     int global_state;
+
+    public Score(){
+
+    }
 
     public Score(String id, String student_id, String subject_id, String score, Date create_at, Date update_at, int local_state, int global_state) {
         this.id = id;
@@ -85,5 +90,13 @@ public class Score {
 
     public void setGlobal_state(int global_state) {
         this.global_state = global_state;
+    }
+
+    public String getClass_id() {
+        return class_id;
+    }
+
+    public void setClass_id(String class_id) {
+        this.class_id = class_id;
     }
 }

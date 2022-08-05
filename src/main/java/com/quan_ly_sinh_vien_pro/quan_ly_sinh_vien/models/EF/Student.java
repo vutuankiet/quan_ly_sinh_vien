@@ -1,8 +1,10 @@
 package com.quan_ly_sinh_vien_pro.quan_ly_sinh_vien.models.EF;
 
+import java.sql.Timestamp;
 import java.util.Date;
+import java.util.HashMap;
 
-public class Student {
+public class Student{
     String id;
     String name;
     String email;
@@ -10,27 +12,31 @@ public class Student {
     String phone;
     String gender_text;
     int gender;
-    Date create_at;
-    Date update_at;
+    Date birthday;
+    Timestamp create_at;
+    Timestamp update_at;
     int local_state;
     int global_state;
     String avatar;
-    String card_id;
+    String card;
+    String class_id;
 
-    public Student(String id, String name, String email, String address, String phone, String gender_text, int gender, Date create_at, Date update_at, int local_state, int global_state, String avatar, String card_id) {
+    public Student() {
+    }
+
+    public Student(String id, String name, String email, String address, String phone, int gender, Date birthday, int local_state, int global_state, String avatar, String card, String class_id) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.address = address;
         this.phone = phone;
-        this.gender_text = gender_text;
         this.gender = gender;
-        this.create_at = create_at;
-        this.update_at = update_at;
+        this.birthday = birthday;
         this.local_state = local_state;
         this.global_state = global_state;
         this.avatar = avatar;
-        this.card_id = card_id;
+        this.card = card;
+        this.class_id = class_id;
     }
 
     public String getId() {
@@ -89,19 +95,27 @@ public class Student {
         this.gender = gender;
     }
 
-    public Date getCreate_at() {
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public Timestamp getCreate_at() {
         return create_at;
     }
 
-    public void setCreate_at(Date create_at) {
+    public void setCreate_at(Timestamp create_at) {
         this.create_at = create_at;
     }
 
-    public Date getUpdate_at() {
+    public Timestamp getUpdate_at() {
         return update_at;
     }
 
-    public void setUpdate_at(Date update_at) {
+    public void setUpdate_at(Timestamp update_at) {
         this.update_at = update_at;
     }
 
@@ -129,11 +143,19 @@ public class Student {
         this.avatar = avatar;
     }
 
-    public String getCard_id() {
-        return card_id;
+    public String getCard() {
+        return card;
     }
 
-    public void setCard_id(String card_id) {
-        this.card_id = card_id;
+    public void setCard(String card) {
+        this.card = card;
+    }
+
+    public String getClass_id() {
+        return class_id;
+    }
+
+    public void setClass_id(String class_id) {
+        this.class_id = class_id;
     }
 }

@@ -10,11 +10,12 @@ public class Subject {
     int local_state;
     int global_state;
 
-    public Subject(String id, String name, Date create_at, Date update_at, int local_state, int global_state) {
+    public Subject(){
+
+    }
+    public Subject(String id, String name, int local_state, int global_state) {
         this.id = id;
         this.name = name;
-        this.create_at = create_at;
-        this.update_at = update_at;
         this.local_state = local_state;
         this.global_state = global_state;
     }
