@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="war" name="quan_ly_sinh_vien:war">
+  <artifact type="war" build-on-make="true" name="quan_ly_sinh_vien:war">
     <output-path>$PROJECT_DIR$/target</output-path>
     <properties id="maven-jee-properties">
       <options>
